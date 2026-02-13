@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For My Halku 💕🧿</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            margin-top: 80px;
+        }
+
+        img {
+            width: 250px;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 15px;
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: white;
+            color: #ff4d6d;
+            position: absolute;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .heart {
+            position: fixed;
+            bottom: 0;
+            font-size: 20px;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-800px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="passwordScreen" style="margin-top:150px;">
+    <h2>Enter Password 💕</h2>
+    <input type="password" id="passwordInput" placeholder="Enter special password">
+    <br><br>
+    <button onclick="checkPassword()">Unlock 💌</button>
+</div>
+
+<div class="container" id="mainContent" style="display:none;">
+    <h1>For My Vivek ❤️</h1>
+
+    <img src="photo.jpg" alt="Our Photo">
+
+    <p>
+        Thank youuu Vivek meri life me aane ke liye aur mujhe itna khush rakhne ke liye 💕  
+        Aise hi hamesha mujhe manate rehna, kabhi chhod ke mat jaana…  
+        Main bhi tujhe kabhi chhod ke nahi jaaungi thik hai halku 🥹❤️  
+        Sorry kabhi kabhi tujhe pareshan karti hoon…  
+        Par tu mera hai toh kar sakti hoon 😌💕  
+        Thank you mujhe itna pyaar dene ke liye…  
+        I love you dher saaraaaaa 💖
+    </p>
+
+    <h2>Will you be my Valentine? 💌</h2>
+
+    <button id="yesBtn" onclick="showLove()">Yes 💖</button>
+    <button id="noBtn" onmouseover="moveButton()">No 😏</button>
+</div>
+
+<audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<script>
+    function checkPassword() {
+        var password = document.getElementById("passwordInput").value;
+        if(password === "halku123") {
+            document.getElementById("passwordScreen").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+        } else {
+            alert("Wrong password 😏 Try again!");
+        }
+    }
+
+    function showLove() {
+        document.body.innerHTML = `
+        <div style="margin-top:150px;">
+            <h1>I Love You Vivek 💕😚🫂🧿</h1>
+            <h2>Forever Yours, Aadrika 💕</h2>
+        </div>`;
+    }
+
+    function moveButton() {
+        var btn = document.getElementById("noBtn");
+        btn.style.top = Math.random() * window.innerHeight + "px";
+        btn.style.left = Math.random() * window.innerWidth + "px";
+    }
+
+    function createHeart() {
+        var heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
